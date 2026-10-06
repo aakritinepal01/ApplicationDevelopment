@@ -1,29 +1,44 @@
 ﻿namespace Task6;
 
+using System;
+using System.Collections.Generic;
+
 class Program
 {
     static void Main()
     {
-        // Birthdate (change to your own: year, month, day)
-        DateTime birthDate = new DateTime(2003, 5, 15);
+        // List<string> with 3 favorite fruits
+        List<string> fruits = new List<string> { "Apple", "Mango", "Banana" };
 
-        // Current date and time
-        DateTime currentDate = DateTime.Now;
+        // Add a new fruit
+        fruits.Add("Orange");
 
-        // Subtract the two dates to get a TimeSpan
-        TimeSpan ageSpan = currentDate - birthDate;
+        // Remove one fruit
+        fruits.Remove("Banana");
 
-        // Convert total days to years (365.25 accounts for leap years)
-        int ageInYears = (int)(ageSpan.TotalDays / 365.25);
+        // Print all fruits using foreach
+        Console.WriteLine("Fruits in the list:");
+        foreach (string fruit in fruits)
+        {
+            Console.WriteLine(fruit);
+        }
 
-        // Add 10 days to the birthdate
-        DateTime birthPlus10 = birthDate.AddDays(10);
+        // Dictionary<int, string>: key = fruit ID, value = fruit name
+        Dictionary<int, string> fruitDict = new Dictionary<int, string>
+        {
+            { 1, "Apple" },
+            { 2, "Mango" },
+            { 3, "Banana" }
+        };
 
-        // Print results
-        Console.WriteLine($"Birthdate    : {birthDate:dd MMM yyyy}");
-        Console.WriteLine($"Current date : {currentDate:dd MMM yyyy HH:mm:ss}");
-        Console.WriteLine($"Days lived   : {(int)ageSpan.TotalDays}");
-        Console.WriteLine($"Age in years : {ageInYears}");
-        Console.WriteLine($"Birthdate + 10 days : {birthPlus10:dd MMM yyyy}");
+        // Add a new entry
+        fruitDict.Add(4, "Orange");
+
+        // Print all key-value pairs
+        Console.WriteLine("\nFruit dictionary:");
+        foreach (KeyValuePair<int, string> item in fruitDict)
+        {
+            Console.WriteLine($"ID: {item.Key}, Name: {item.Value}");
+        }
     }
 }
